@@ -31,7 +31,7 @@ jobs:
         run: |
           mvn clean package -f ./reservation/pom.xml
           mvn clean package -f ./send/pom.xml
-          mvn clean package -f ./rater/pom.xml
+          mvn clean package -f ./stat/pom.xml
           mvn clean package -f ./monitoring/pom.xml
 
       - name: Docker Build and push for Reservation
@@ -54,15 +54,15 @@ jobs:
             ghcr.io/${{ github.repository }}/send:latest
             ghcr.io/${{ github.repository }}/send:${{ github.ref_name }}
             
-      - name: Docker Build and push for Rater
+      - name: Docker Build and push for Stat
         uses: docker/build-push-action@v4
         with:
-          context: ./rater
+          context: ./stat
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/rater:latest
-            ghcr.io/${{ github.repository }}/rater:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/stat:latest
+            ghcr.io/${{ github.repository }}/stat:${{ github.ref_name }}
             
       - name: Docker Build and push for Monitoring
         uses: docker/build-push-action@v4

@@ -5,6 +5,10 @@
         </v-card-title>
 
         <v-card-text>
+            <Number label="UserId" v-model="value.userId" :editMode="editMode"/>
+            <String label="MsgTitle" v-model="value.msgTitle" :editMode="editMode"/>
+            <String label="MsgContent" v-model="value.msgContent" :editMode="editMode"/>
+            <Number label="ReserveQt" v-model="value.reserveQt" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>
@@ -40,6 +44,10 @@
             value: {},
         }),
         created() {
+            this.value.userId = 0;
+            this.value.msgTitle = '';
+            this.value.msgContent = '';
+            this.value.reserveQt = 0;
         },
         watch: {
         },

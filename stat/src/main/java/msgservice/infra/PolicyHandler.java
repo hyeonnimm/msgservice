@@ -18,55 +18,71 @@ import org.springframework.stereotype.Service;
 public class PolicyHandler {
 
     @Autowired
-    MsgReqRepository msgReqRepository;
+    StatRepository statRepository;
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='MsgSent'"
-    )
-    public void wheneverMsgSent_UpdateStatus(@Payload MsgSent msgSent) {
-        MsgSent event = msgSent;
-        System.out.println(
-            "\n\n##### listener UpdateStatus : " + msgSent + "\n\n"
-        );
-
-        // Sample Logic //
-        MsgReq.updateStatus(event);
-    }
-
-    @StreamListener(
-        value = KafkaProcessor.INPUT,
         condition = "headers['type']=='SendCompleted'"
     )
-    public void wheneverSendCompleted_UpdateStatus(
+    public void wheneverSendCompleted_IncreaseRate(
         @Payload SendCompleted sendCompleted
     ) {
         SendCompleted event = sendCompleted;
         System.out.println(
-            "\n\n##### listener UpdateStatus : " + sendCompleted + "\n\n"
+            "\n\n##### listener IncreaseRate : " + sendCompleted + "\n\n"
         );
 
         // Sample Logic //
-        MsgReq.updateStatus(event);
+        Stat.increaseRate(event);
     }
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='SendFailed'"
     )
-    public void wheneverSendFailed_UpdateStatus(
+    public void wheneverSendFailed_IncreaseStat(
         @Payload SendFailed sendFailed
     ) {
         SendFailed event = sendFailed;
         System.out.println(
-            "\n\n##### listener UpdateStatus : " + sendFailed + "\n\n"
+            "\n\n##### listener IncreaseStat : " + sendFailed + "\n\n"
         );
 
         // Sample Logic //
-        MsgReq.updateStatus(event);
+        Stat.increaseStat(event);
+    }
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='SendCompleted'"
+    )
+    public void wheneverSendCompleted_IncreaseStat(
+        @Payload SendCompleted sendCompleted
+    ) {
+        SendCompleted event = sendCompleted;
+        System.out.println(
+            "\n\n##### listener IncreaseStat : " + sendCompleted + "\n\n"
+        );
+
+        // Sample Logic //
+        Stat.increaseStat(event);
+    }
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='MsgSent'"
+    )
+    public void wheneverMsgSent_IncreaseStat(@Payload MsgSent msgSent) {
+        MsgSent event = msgSent;
+        System.out.println(
+            "\n\n##### listener IncreaseStat : " + msgSent + "\n\n"
+        );
+
+        // Sample Logic //
+        Stat.increaseStat(event);
     }
 }
 //>>> Clean Arch / Inbound Adaptor

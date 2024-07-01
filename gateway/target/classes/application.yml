@@ -12,15 +12,15 @@ spring:
         - id: reservation
           uri: http://localhost:8082
           predicates:
-            - Path=/msgLists/**, 
+            - Path=/msgReqs/**, 
         - id: send
           uri: http://localhost:8083
           predicates:
             - Path=/msgs/**, 
-        - id: rater
+        - id: stat
           uri: http://localhost:8084
           predicates:
-            - Path=/rates/**, 
+            - Path=/stats/**, 
         - id: monitoring
           uri: http://localhost:8085
           predicates:
@@ -52,15 +52,15 @@ spring:
         - id: reservation
           uri: http://reservation:8080
           predicates:
-            - Path=/msgLists/**, 
+            - Path=/msgReqs/**, 
         - id: send
           uri: http://send:8080
           predicates:
             - Path=/msgs/**, 
-        - id: rater
-          uri: http://rater:8080
+        - id: stat
+          uri: http://stat:8080
           predicates:
-            - Path=/rates/**, 
+            - Path=/stats/**, 
         - id: monitoring
           uri: http://monitoring:8080
           predicates:
