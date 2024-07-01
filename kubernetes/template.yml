@@ -83,22 +83,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rater
+  name: stat
   labels:
-    app: rater
+    app: stat
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rater
+      app: stat
   template:
     metadata:
       labels:
-        app: rater
+        app: stat
     spec:
       containers:
-        - name: rater
-          image: username/rater:latest
+        - name: stat
+          image: username/stat:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -199,15 +199,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: rater
+  name: stat
   labels:
-    app: rater
+    app: stat
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: rater
+    app: stat
 
 
 ---

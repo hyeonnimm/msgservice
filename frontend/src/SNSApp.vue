@@ -36,13 +36,13 @@
                 <v-list>
                     <v-list-item
                         class="px-2"
-                        key="msgLists"
-                        to="/reservations/msgLists"
+                        key="msgReqs"
+                        to="/reservations/msgReqs"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
                     >
-                        MsgList
+                        MsgReq
                     </v-list-item>
 
 
@@ -60,13 +60,13 @@
 
                     <v-list-item
                         class="px-2"
-                        key="rates"
-                        to="/raters/rates"
+                        key="stats"
+                        to="/stats/stats"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
                     >
-                        Rate
+                        Stat
                     </v-list-item>
 
 
@@ -150,10 +150,10 @@ export default {
         ImageUrl: '',
         aggregate: [
             { 
-                title: 'MsgList', 
+                title: 'MsgReq', 
                 description: '', 
-                key: 'msgLists', 
-                route: '/reservations/msgLists',
+                key: 'msgReqs', 
+                route: '/reservations/msgReqs',
                 ImageUrl: '',
             },
             { 
@@ -164,10 +164,10 @@ export default {
                 ImageUrl: '',
             },
             { 
-                title: 'Rate', 
+                title: 'Stat', 
                 description: '', 
-                key: 'rates', 
-                route: '/raters/rates',
+                key: 'stats', 
+                route: '/stats/stats',
                 ImageUrl: '',
             },
             

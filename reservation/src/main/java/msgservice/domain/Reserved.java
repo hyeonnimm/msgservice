@@ -21,7 +21,7 @@ public class Reserved extends AbstractEvent {
     private Long reserveQt;
     private String status;
 
-    public Reserved(MsgList aggregate) {
+    public Reserved(MsgReq aggregate) {
         super(aggregate);
     }
 

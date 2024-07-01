@@ -5,14 +5,14 @@ import Router from 'vue-router'
 Vue.use(Router);
 
 
-import ReservationMsgListManager from "./components/listers/ReservationMsgListCards"
-import ReservationMsgListDetail from "./components/listers/ReservationMsgListDetail"
+import ReservationMsgReqManager from "./components/listers/ReservationMsgReqCards"
+import ReservationMsgReqDetail from "./components/listers/ReservationMsgReqDetail"
 
 import SendMsgManager from "./components/listers/SendMsgCards"
 import SendMsgDetail from "./components/listers/SendMsgDetail"
 
-import RaterRateManager from "./components/listers/RaterRateCards"
-import RaterRateDetail from "./components/listers/RaterRateDetail"
+import StatStatManager from "./components/listers/StatStatCards"
+import StatStatDetail from "./components/listers/StatStatDetail"
 
 
 
@@ -21,14 +21,14 @@ export default new Router({
     base: process.env.BASE_URL,
     routes: [
             {
-                path: '/reservations/msgLists',
-                name: 'ReservationMsgListManager',
-                component: ReservationMsgListManager
+                path: '/reservations/msgReqs',
+                name: 'ReservationMsgReqManager',
+                component: ReservationMsgReqManager
             },
             {
-                path: '/reservations/msgLists/:id',
-                name: 'ReservationMsgListDetail',
-                component: ReservationMsgListDetail
+                path: '/reservations/msgReqs/:id',
+                name: 'ReservationMsgReqDetail',
+                component: ReservationMsgReqDetail
             },
 
             {
@@ -43,14 +43,14 @@ export default new Router({
             },
 
             {
-                path: '/raters/rates',
-                name: 'RaterRateManager',
-                component: RaterRateManager
+                path: '/stats/stats',
+                name: 'StatStatManager',
+                component: StatStatManager
             },
             {
-                path: '/raters/rates/:id',
-                name: 'RaterRateDetail',
-                component: RaterRateDetail
+                path: '/stats/stats/:id',
+                name: 'StatStatDetail',
+                component: StatStatDetail
             },
 
 

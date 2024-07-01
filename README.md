@@ -95,7 +95,7 @@ See the README.md files inside the each microservices directory:
 
 - reservation
 - send
-- rater
+- stat
 - monitoring
 
 
@@ -108,15 +108,15 @@ mvn spring-boot:run
 ## Test by API
 - reservation
 ```
- http :8088/msgLists id="id" userId="userId" msgTitle="MsgTitle" msgContent="MsgContent" reserveDt="ReserveDt" dstNum="DstNum" callbackNum="CallbackNum" reserveQt="ReserveQt" status="status" 
+ http :8088/msgReqs id="id" userId="userId" msgTitle="MsgTitle" msgContent="MsgContent" reserveDt="ReserveDt" dstNum="DstNum" callbackNum="CallbackNum" reserveQt="ReserveQt" status="status" 
 ```
 - send
 ```
  http :8088/msgs id="id" reservationId="ReservationId" msgTitle="MsgTitle" msgContent="MsgContent" reserveDt="ReserveDt" dstNum="DstNum" callbackNum="CallbackNum" status="status" 
 ```
-- rater
+- stat
 ```
- http :8088/rates id="id" userId="userId" userRate="userRate" history="history" 
+ http :8088/stats id="id" userId="userId" rate="Rate" history="history" stat="stat" 
 ```
 - monitoring
 ```
